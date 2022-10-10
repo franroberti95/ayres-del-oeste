@@ -1,9 +1,5 @@
 #### Pagina referencia: https://3ddesarrollistas.com/
 
-````
-
-````
-
 ## Pagina principal
   - Header: 
     - Desarrollos: En construccion y finalizado
