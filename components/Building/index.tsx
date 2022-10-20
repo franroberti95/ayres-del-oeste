@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
 import {Grid, Typography} from "@mui/material";
+import { gsap } from "gsap";
 
 interface BuildingI {
     images: string[];
@@ -19,21 +20,49 @@ const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
         <BuildingsContainer>
             <Grid container spacing={2}>
                 {
-                    buildings.map ( (p, i) =>
-                        <Grid item xs={ i % 3 === 0 ? 4:8}>
-                            <BuildingContainer
-                                image={p.images[0]}>
-                                <Typography variant="h5" color={'white'}>
-                                    {p.title}
-                                </Typography>
-                            </BuildingContainer>
-                        </Grid>
+                    buildings.map ( (b, i) =>
+                        <Building
+                            building={b}
+                            index={i}
+                        />
                     )
                 }
             </Grid>
         </BuildingsContainer>
     </BuildingsMainContainer>
 }
+
+const Building = ({building, index}) => {
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            /*
+                gsap.registerPlugin(ScrollTrigger);
+                ScrollTrigger.addEventListener('scrollStart', () => {
+                gsap.fromTo(
+                    gridRef.current,
+                    {
+                        y: index % 3 === 0 ? 5:-5
+                    },
+                    {
+                        y:  index % 3 === 0 ? -5:5
+                    }
+                );
+            })*/
+        });
+        return () => ctx.revert();
+    },[])
+
+    return <Grid ref={gridRef} item xs={ index % 3 === 0 ? 4:8}>
+        <BuildingContainer
+            image={building.images[0]}>
+            <Typography variant="h5" color={'white'}>
+                {building.title}
+            </Typography>
+        </BuildingContainer>
+    </Grid>;
+};
 
 const BuildingsContainer = styled.div`
     padding: 16px;

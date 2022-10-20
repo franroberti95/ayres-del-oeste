@@ -6,11 +6,9 @@ import Footer from '../../components/Footer';
 const Home: NextPage = () => {
     return (
         <div>
-            <Header/>
-asdsda
-            <Footer
+            <Header />
 
-            />
+            <Footer />
         </div>
     )
 }
