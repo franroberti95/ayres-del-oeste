@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Buildings from "../components/Building";
 import Header from "../components/Header";
 import Footer from '../components/Footer';
+import BuildingMap from "../components/BuildingMap";
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -40,6 +41,7 @@ async function getBuilding(db: any) {
   return cityList;
 }
 
+
 const Home: NextPage = () => {
   const [ buildings, setBuildings ] = useState([]);
   useEffect( () => {
@@ -53,7 +55,9 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header/>
-      <Buildings
+        <BuildingMap buildings={buildings}/>
+
+        <Buildings
           buildings={buildings}
       />
       <Footer

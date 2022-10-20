@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     return (
         <div>
             <Header/>
-
+asdsda
             <Footer
 
             />

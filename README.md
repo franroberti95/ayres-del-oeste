@@ -5,9 +5,8 @@
     - Desarrollos: En construccion y finalizado
     - Contacto
     - Link wpp
-    
+  - Mapa con inmuebles  
   - Desarrollos (imagen y direccion), donde hago click y me manda al detalle.
-  - Mapa con inmuebles
   - Inmuebles informativos, sin actividad
   - Comentario propietarios
   - Inmobiliarias asociadas
