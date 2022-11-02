@@ -7,7 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Footer = () =>
     <FooterContainer container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
             <Title>
                 Contactanos
             </Title>
@@ -32,8 +32,20 @@ const Footer = () =>
                 Somos una empresa familiar que hace mas de 15 años diseña, dirige y desarrolla edificios en altura, residenciales agregando valor a la ciudad. Te invitamos a conocer nuestras opciones.
             </Text>
         </ImageContainer>
-        <Grid item xs={6}>
-        </Grid>
+         <InmobiliariaConteiner item xs={5}>
+            <Title>
+                INMONILIARIAS ASOCIADAS
+            </Title>
+            <FooterImage
+                src={'https://www.beltraminopropiedades.com.ar/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F8868_r%2Flogo_5ec814d6453c3.jpg&w=1920&q=75'}
+            />
+             <FooterImage
+                src={'https://www.scarabelpropiedades.com/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F7777_r%2Flogo_u_5f0dcabe9ddb2.jpg&w=1920&q=75'}
+            />
+            
+            
+         
+        </InmobiliariaConteiner>
 
     </FooterContainer>;
 
@@ -45,6 +57,9 @@ const ContactInfo = ({icon, text}) =>
 
 const ImageContainer = styled(Grid)`
   text-align: center;
+`;
+const InmobiliariaConteiner = styled(Grid)`
+  text-align: right;
 `;
 
 const ContactInfoContainer = styled.div`

@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Buildings from "../components/Building";
 import Header from "../components/Header";
 import Footer from '../components/Footer';
+import Coments from '../components/Coments';
 import BuildingMap from "../components/BuildingMap";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -60,6 +61,9 @@ const Home: NextPage = () => {
         <Buildings
           buildings={buildings}
       />
+      <Coments
+
+/>
       <Footer
 
       />
