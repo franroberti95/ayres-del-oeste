@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import Coments from '../components/Coments';
 import BuildingMap from "../components/BuildingMap";
+import styled from 'styled-components';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -57,18 +58,23 @@ const Home: NextPage = () => {
     <div>
       <Header/>
         <BuildingMap buildings={buildings}/>
-
-        <Buildings
+        <DividerContainer/>
+      <Buildings
           buildings={buildings}
       />
       <Coments
 
-/>
+      />
+        <DividerContainer/>
       <Footer
 
       />
     </div>
   )
 }
+
+const DividerContainer = styled.div`
+  margin-top: 24px;
+`;
 
 export default Home

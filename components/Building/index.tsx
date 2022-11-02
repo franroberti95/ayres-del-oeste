@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
 import {Grid, Typography} from "@mui/material";
 import { gsap } from "gsap";
-
+import MapIcon from '@mui/icons-material/Place'
 interface BuildingI {
     images: string[];
     characteristics: {type: string, value: string}[];
@@ -10,29 +10,55 @@ interface BuildingI {
     description: string;
     location: {latitude: string, longitude: string};
     floorPlan: string[];
+    locationName: string;
+    order: number;
 }
 
 const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
+    const orderedBuildings = buildings
+        .sort( (b1,b2) => b1.order > b2.order ? 1:-1);
     return <BuildingsMainContainer>
-        <Typography variant="h4" gutterBottom align={'center'}>
-            Desarrollos inmobiliarios
-        </Typography>
+        <TitleContainer>
+            <Typography variant="h4" color={'black'}>
+                Desarrollos inmobiliarios
+            </Typography>
+        </TitleContainer>
         <BuildingsContainer>
             <Grid container spacing={2}>
-                {
-                    buildings.map ( (b, i) =>
-                        <Building
-                            building={b}
-                            index={i}
-                        />
-                    )
-                }
+                <Grid item xs={6}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                    <Building
+                                        building={orderedBuildings[0]}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Building
+                                        building={orderedBuildings[1]}
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Building
+                                building={orderedBuildings[2]}
+                            />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid item xs={6}>
+                    <Building
+                        building={orderedBuildings[3]}
+                    />
+                </Grid>
             </Grid>
         </BuildingsContainer>
     </BuildingsMainContainer>
 }
 
-const Building = ({building, index}) => {
+const Building = ({building}) => {
     const gridRef = useRef(null);
 
     useEffect(() => {
@@ -54,22 +80,37 @@ const Building = ({building, index}) => {
         return () => ctx.revert();
     },[])
 
-    return <Grid ref={gridRef} item xs={ index % 3 === 0 ? 4:8}>
-        <BuildingContainer
+    if(!building) return null;
+
+    return <BuildingContainer
+            ref={gridRef}
             image={building.images[0]}>
             <Typography variant="h5" color={'white'}>
                 {building.title}
             </Typography>
-        </BuildingContainer>
-    </Grid>;
+            <BuildingIconContainer>
+                <MapIcon style={{color: 'lightgrey', height: 16}}/>
+                <Typography variant="caption" color={'lightgrey'}>
+                    {building.locationName}
+                </Typography>
+            </BuildingIconContainer>
+        </BuildingContainer>;
 };
+
+const BuildingIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
 const BuildingsContainer = styled.div`
     padding: 16px;
+  
 `;
 const BuildingContainer = styled.div`
   padding: 40px;
-  height: 300px;
+  height: 100%;
+  min-height: 300px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -77,12 +118,13 @@ const BuildingContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  border-radius: 8px;
+  border-radius: 4px;
   background-image: url('${props => props.image}');
-  
+  transition: .5s all;
   &:hover{
     cursor: pointer;
-    
+    transform: translateY(-15px);
+    box-shadow: 0 10px 16px 0 rgb(255 255 255 / 20%), 0 6px 20px 0 rgb(255 255 255 / 19%) !important;
   }
 `;
 
@@ -97,5 +139,13 @@ const BuildingImageTitle = styled.p`
   margin: 0;
   font-weight: bold;
     font-size: 24px;
+`;
+
+const TitleContainer = styled.div`
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: linear-gradient(135deg, #020202 25%, #00ffff 25%);
 `;
 export default Buildings;

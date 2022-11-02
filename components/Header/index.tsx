@@ -51,6 +51,11 @@ const Header = () =>
             <BasicMenuButton/>
         </HeaderItem>
         <HeaderItem>
+            <Button>
+                Nosotros
+            </Button>
+        </HeaderItem>
+        <HeaderItem>
             <Button
                 target={'_blank'}
                 href={'https://api.whatsapp.com/send?phone=+5491124577070&text=Buenas!%20Me%20interesar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20desarrollos%20de%20ayres%20del%20oeste'}
