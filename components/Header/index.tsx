@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownIcon from '@mui/icons-material/ExpandMore';
+import Logo from './Logo.svg';
 
 function BasicMenuButton() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -17,6 +18,7 @@ function BasicMenuButton() {
 
     return (
         <div>
+            
             <Button
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
@@ -42,10 +44,11 @@ function BasicMenuButton() {
         </div>
     );
 }
+console.log('asdadssd', Logo)
 const Header = () =>
     <HeaderContainer>
         <HeaderLogoContainer>
-            <HeaderLogo src={'https://www.romaydesarrollos.com.ar/wp-content/themes/romay/images/logo-romay.svg'}></HeaderLogo>
+            <HeaderLogo src={Logo.src}></HeaderLogo>
         </HeaderLogoContainer>
         <HeaderItem>
             <BasicMenuButton/>
@@ -71,7 +74,7 @@ const HeaderContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   padding: 14px 0 14px 0;
-  //background-color: rgba(56, 56, 152,0.1);
+  background-color: #3051B7;
 `;
 const HeaderItem = styled.div`
 `;
@@ -81,5 +84,9 @@ const HeaderLogoContainer = styled.div`
 const HeaderLogo = styled.img`
   width: 100%;
 `;
+
+
+
+
 
 export default Header;

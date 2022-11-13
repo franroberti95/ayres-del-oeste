@@ -4,10 +4,11 @@ import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Email';
 import Grid from '@mui/material/Grid';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Typography from '@mui/material/Typography';
 
 const Footer = () =>
     <FooterContainer container spacing={2}>
-        <Grid item xs={4}>
+        <ContactContainer item xs={12} md={4}>
             <Title>
                 Contactanos
             </Title>
@@ -23,25 +24,25 @@ const Footer = () =>
                 icon={MailIcon}
                 text={'asdfsd@gmail.com'}
             />
-        </Grid>
-        <ImageContainer item xs={3}>
-            <FooterImage
-                src={'https://3ddesarrollistas.com/wp-content/uploads/2020/11/3d-logo-blanco.png'}
+        </ContactContainer>
+        <ImageContainer item xs={12} md={3}>
+            <FooterImageLogo
+                src={'http://drive.google.com/uc?export=view&id=1-jOZ6xL-eerhg-iDGLm5XJyYJO5NpmrT'}
             />
             <Text>
-                Somos una empresa familiar que hace mas de 15 años diseña, dirige y desarrolla edificios en altura, residenciales agregando valor a la ciudad. Te invitamos a conocer nuestras opciones.
+                Somos una empresa que hace mas de 15 años diseña, dirige y desarrolla edificios residenciales en altura, agregando valor a la ciudad, mejorando la seguridad y calidad de nuestros clientes. Te invitamos a conocer nuestras opciones
             </Text>
         </ImageContainer>
-         <InmobiliariaConteiner item xs={5}>
+         <InmobiliariaConteiner item xs={12} md={5}>
             <Title>
                 INMONILIARIAS ASOCIADAS
             </Title>
-            <FooterImage
-                src={'https://www.beltraminopropiedades.com.ar/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F8868_r%2Flogo_5ec814d6453c3.jpg&w=1920&q=75'}
-            />
              <FooterImage
                 src={'https://www.scarabelpropiedades.com/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F7777_r%2Flogo_u_5f0dcabe9ddb2.jpg&w=1920&q=75'}
+            /><FooterImage
+                src={'https://www.beltraminopropiedades.com.ar/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F8868_r%2Flogo_5ec814d6453c3.jpg&w=1920&q=75'}
             />
+            
             
             
          
@@ -55,37 +56,63 @@ const ContactInfo = ({icon, text}) =>
         <TitleDetail>{text}</TitleDetail>
     </ContactInfoContainer>;
 
+const ContactContainer = styled(Grid)`
+@media only screen and (max-width: 768px) {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}  
+`;
+
 const ImageContainer = styled(Grid)`
   text-align: center;
+  margin-top: 20px;
+ 
 `;
 const InmobiliariaConteiner = styled(Grid)`
   text-align: right;
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const ContactInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
   
 `;
 
 const FooterContainer = styled(Grid)`
-  background-color: #05055b;
+  background-color: #3051B7;
   align-items: center;
   justify-content: center;
   padding: 40px;
+  
+  
 `;
 
 const FooterImage = styled.img`
   align-items: center;
   justify-content: center;
+  text-align: center;
+  
  `;
+const FooterImageLogo = styled.img`
+padding: 0 px;
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: flex-end;
+flex-direction: column;
+`;
 const Text = styled.p`
     color: white;    
 `;
 const Title = styled.h2`
   color: white;
+  
 `;
 const TitleDetail = styled.h4`
     color: white;    

@@ -6,7 +6,7 @@ import Buildings from "../components/Building";
 import Header from "../components/Header";
 import Footer from '../components/Footer';
 import Coments from '../components/Coments';
-import BuildingMap from "../components/BuildingMap";
+import BuildingMap from "../components/BuildingMaps";
 import styled from 'styled-components';
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -36,10 +36,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Get a list of cities from your database
-async function getBuilding(db: any) {
+export async function getBuilding(db: any) {
   const citiesCol = collection(db, 'building');
   const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map(doc => doc.data());
+  const cityList = citySnapshot.docs.map(doc => ({id: doc.id,...doc.data()}));
   return cityList;
 }
 

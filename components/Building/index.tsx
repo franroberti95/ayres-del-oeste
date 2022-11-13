@@ -2,22 +2,31 @@ import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
 import {Grid, Typography} from "@mui/material";
 import { gsap } from "gsap";
-import MapIcon from '@mui/icons-material/Place'
-interface BuildingI {
+import MapIcon from '@mui/icons-material/Place';
+import Link from 'next/link'
+
+export interface CharacteristicI {
+    type: string;
+    value: string;
+}
+
+export interface BuildingI {
     images: string[];
-    characteristics: {type: string, value: string}[];
+    characteristics: CharacteristicI[];
     title: string;
     description: string;
     location: {latitude: string, longitude: string};
     floorPlan: string[];
     locationName: string;
     order: number;
+    id: number | string;
 }
 
 const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
     const orderedBuildings = buildings
         .sort( (b1,b2) => b1.order > b2.order ? 1:-1);
     return <BuildingsMainContainer>
+
         <TitleContainer>
             <Typography variant="h4" color={'black'}>
                 Desarrollos inmobiliarios
@@ -25,16 +34,16 @@ const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
         </TitleContainer>
         <BuildingsContainer>
             <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Grid container spacing={2}>
-                                <Grid item xs={6}>
-                                    <Building
-                                        building={orderedBuildings[0]}
-                                    />
+                                <Grid item xs={12} md={6}>
+                                        <Building
+                                            building={orderedBuildings[0]}
+                                        />
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6}>
                                     <Building
                                         building={orderedBuildings[1]}
                                     />
@@ -48,7 +57,7 @@ const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     <Building
                         building={orderedBuildings[3]}
                     />
@@ -81,8 +90,9 @@ const Building = ({building}) => {
     },[])
 
     if(!building) return null;
-
-    return <BuildingContainer
+    console.log(building);
+    return <a href={`/building/${building.id}`}>
+        <BuildingContainer
             ref={gridRef}
             image={building.images[0]}>
             <Typography variant="h5" color={'white'}>
@@ -94,7 +104,8 @@ const Building = ({building}) => {
                     {building.locationName}
                 </Typography>
             </BuildingIconContainer>
-        </BuildingContainer>;
+        </BuildingContainer>
+    </a>;
 };
 
 const BuildingIconContainer = styled.div`
@@ -133,6 +144,7 @@ const BuildingTitle = styled.h1`
 `;
 
 const BuildingsMainContainer = styled.div`
+
 `;
 const BuildingImageTitle = styled.p`
   color: white;
@@ -146,6 +158,6 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  background: linear-gradient(135deg, #020202 25%, #00ffff 25%);
+  background: linear-gradient(135deg, #05055b 25%, #3051B7 25%);
 `;
 export default Buildings;

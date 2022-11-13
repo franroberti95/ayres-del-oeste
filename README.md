@@ -18,7 +18,7 @@
 ## Pagina Edificio
   - Header
   - 4 Fotos en slider
-  - Caracteristicas / Tipologias / Ubicacion
+  - Caracteristicas / Planos / Ubicacion
   - Consultar disponibilidad : link Wpp
   - Footer
 
