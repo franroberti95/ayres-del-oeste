@@ -44,16 +44,15 @@ export async function getBuilding(db: any) {
 }
 
 
-const Home: NextPage = () => {
-  const [ buildings, setBuildings ] = useState([]);
-  useEffect( () => {
+// This gets called on every request
+export async function getServerSideProps() {
+    // Fetch data from external API
+    const res = await getBuilding(db);
+    // Pass data to the page via props
+    return { props: { buildings: JSON.parse(JSON.stringify(res)) } }
+}
 
-    getBuilding(db).then((r)=>{
-      setBuildings(r)
-    })
-
-  } , []);
-
+const Home: NextPage = ({buildings}) => {
   return (
     <div>
       <Header/>

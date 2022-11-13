@@ -36,24 +36,17 @@ const BuildingMap = ({buildings}: {buildings: BuildingI[]}) => {
         let map: google.maps.Map | null = null;
         if (ref.current) {
             map = new window.google.maps.Map(ref.current, {
-                zoom:8,
+                zoom:15,
                 center: { lat: -34.6662424704835, lng: -58.706930534364645 }
             });
         }
 
         setMarkers(buildings.map( b => {
+            console.log('asd', b.location)
             const marker = new window.google.maps.Marker({
-                icon: {
-                    path: 'M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z',
-                    fillColor: "black",
-                    fillOpacity: 1,
-                    strokeWeight: 0,
-                    rotation: 0,
-                    scale: 1,
-                    anchor: new google.maps.Point(0, 0),
-                },
                 clickable: true,
-                position: {lat: b?.location?.latitude || -34.6662424704835, lng: b?.location?.longitude || -58.706930534364645}});
+                position: {lat: b?.location?.latitude || -34.6662424704835, lng: b?.location?.longitude || -58.706930534364645}
+            });
 
             marker.addListener("click", () => {
                 /*map.setZoom(8);
