@@ -13,7 +13,7 @@ import { BuildingI } from '../Building';
 import styled from 'styled-components';
 
 
-export default ({building}: {building: BuildingI}) => {
+const Building = ({building}: {building: BuildingI}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return <SwiperContainer>
 
@@ -147,3 +147,5 @@ max-height: 80vh;
   object-fit: cover;
 }
 `;
+
+export default Building

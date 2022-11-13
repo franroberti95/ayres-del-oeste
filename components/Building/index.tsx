@@ -67,7 +67,7 @@ const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
     </BuildingsMainContainer>
 }
 
-const Building = ({building}) => {
+const Building = ({building}: {building: BuildingI}) => {
     const gridRef = useRef(null);
 
     useEffect(() => {

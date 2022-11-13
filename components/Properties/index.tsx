@@ -13,9 +13,7 @@ interface PropertyI {
 const Properties = ({properties}: {properties: PropertyI[]}) => {
     return <PropertiesContainer>
         {
-            properties.map ( p =>
-
-            )
+            properties.map ( p => {} )
         }
     </PropertiesContainer>
 }

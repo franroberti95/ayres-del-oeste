@@ -19,13 +19,13 @@ const type = {
   'lift': <SwapVertIcon/>,
 };
 
-export default ({building}: {building: BuildingI}) => {
+const Building = ({building}: {building: BuildingI}) => {
   return <CharacteristicsContainer>
       <Typography variant='h4' align='center'>Características</Typography>
       <Typography variant='h6' align='center'>{building.description}</Typography>
       {
-        building.characteristics.map( c => 
-            <CharacteristicContainer>
+        building.characteristics.map( (c, i) =>
+            <CharacteristicContainer key={i}>
               {
                 type[c.type]
               }
@@ -46,3 +46,5 @@ const CharacteristicContainer = styled.div`
   padding-bottom:15px;
   border-bottom: 1px solid grey;
 `;
+
+export default Building
