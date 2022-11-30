@@ -65,9 +65,9 @@ const Home: NextPage = ({building}: BuildingPageI) => {
         <div>
             <Header />
             <TitleContainer>
-            <Typography variant='h2' align='center'>
-              {building.title}
-            </Typography>
+              <TitleContainerTest>
+                {building.title}
+              </TitleContainerTest>
             </TitleContainer>
 
             <Slideshow building={building}/> 
@@ -92,6 +92,21 @@ const Home: NextPage = ({building}: BuildingPageI) => {
 const TitleContainer = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
+`;
+
+const TitleContainerTest = styled.h2`
+    color: white;
+    text-align: center;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 60px;
+    letter-spacing: 4.4px;
+    word-spacing: 1.2px;
+    font-weight: 500;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 2px black;
 `;
 
 export default Home

@@ -7,7 +7,7 @@ interface PropertyI {
     title: string;
     description: string;
     location: {latitude: string, longitude: string};
-    status: 'A ESTRENAR' | 'USADO'  | 'POZO' | 'ALQUILER' | 'VENTA'
+    status: 'A ESTRENAR' | 'USADO'  | 'POZO' | 'ALQUILER' 
 }
 
 const Properties = ({properties}: {properties: PropertyI[]}) => {

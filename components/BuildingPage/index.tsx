@@ -51,7 +51,7 @@ const Building = ({building}: {building: BuildingI}) => {
     {
       building.images.map( (i,k) => 
         <SwiperSlide key={k}>
-          <img src={i} />
+          <img src={i}/>
         </SwiperSlide>
       )
     }
@@ -83,9 +83,8 @@ max-height: 80vh;
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
+  background: black;
+  /* Center slide text vertica  lly */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -102,9 +101,8 @@ max-height: 80vh;
 
 .swiper-slide img {
   display: block;
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: ;
 }
 
 .swiper {
@@ -112,40 +110,40 @@ max-height: 80vh;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
+  background: #23b3a7;
 }
 
 .swiper-slide {
   background-size: cover;
   background-position: center;
+  background: #23b3a7;
 }
 
 .mySwiper2 {
   height: 50vh;
   width: 100%;
+  background: #23b3a7;
 }
 
 .mySwiper {
   height: 20vh;
   box-sizing: border-box;
   padding: 10px 0;
+  background: #23b3a7;
 }
 
 .mySwiper .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
+  background: #23b3a7;
 }
 
 .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
+   background: #23b3a7;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 `;
 
 export default Building

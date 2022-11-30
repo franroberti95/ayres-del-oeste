@@ -56,8 +56,8 @@ const Home: NextPage = ({buildings}) => {
   return (
     <div>
       <Header/>
-        <BuildingMap buildings={buildings}/>
-        <DividerContainer/>
+      <BuildingMap buildings={buildings}/>
+      <DividerContainer/>
       <Buildings
           buildings={buildings}
       />
@@ -74,6 +74,7 @@ const Home: NextPage = ({buildings}) => {
 
 const DividerContainer = styled.div`
   margin-top: 24px;
+  color: red;
 `;
 
 export default Home

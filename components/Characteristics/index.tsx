@@ -19,17 +19,19 @@ const type = {
   'lift': <SwapVertIcon/>,
 };
 
+
+
 const Building = ({building}: {building: BuildingI}) => {
   return <CharacteristicsContainer>
-      <Typography variant='h4' align='center'>Características</Typography>
-      <Typography variant='h6' align='center'>{building.description}</Typography>
+      <CustomTypographys>Características</CustomTypographys>
+      <CustomDescription>{building.description}</CustomDescription>
       {
         building.characteristics.map( (c, i) =>
             <CharacteristicContainer key={i}>
               {
                 type[c.type]
               }
-              <Typography variant='subtitle1' align='center'>{c.value}</Typography>
+              <CustomTypography variant='subtitle1' align='center'>{c.value}</CustomTypography>
             </CharacteristicContainer>
           )
       }
@@ -37,14 +39,52 @@ const Building = ({building}: {building: BuildingI}) => {
 }
 
 const CharacteristicsContainer = styled.div`
-  padding 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 100%;
+  background-color: #23b3a7;
+  
 `;
 
 const CharacteristicContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom:15px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid white;
+`;
+const CustomTypography = styled.div`
+color: #defffa;
+font-family: "Monaco", monospace;
+text-indent: 15px;
+font-size: 16px;
+padding-bottom: 0px;
+padding-top: 2px;
+text-shadow: 1px 1px 2px black;
+`;
+const CustomDescription = styled.div`
+color: #defffa;
+font-family: "Monaco", monospace;
+border-bottom: 1px solid white;
+font-size: 16px;
+padding-bottom: 25px;
+padding-top: 2px;
+text-indent: 25px;
+text-shadow: 1px 1px 2px black;
 `;
 
+const building = styled.div`
+  background-color: #23b3a7;
+
+`
+const CustomTypographys = styled.div`
+color: white;
+font-family: "Monaco", monospace;
+font-size: 24px;
+padding-bottom: 1px;
+margin-bottom: 10px;
+padding-top: 2px;
+text-shadow: 1px 1px 2px black;
+
+
+`
 export default Building

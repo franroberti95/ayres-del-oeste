@@ -47,9 +47,9 @@ const BuildingMap = ({b}: {b: BuildingI}) => {
         const marker = new window.google.maps.Marker({
             icon: {
                 path: 'M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z',
-                fillColor: "black",
-                fillOpacity: 1,
-                strokeWeight: 0,
+                fillColor: "#00ff93e0",
+                fillOpacity: 0.8,
+                strokeWeight: 0.5,
                 rotation: 0,
                 scale: 1,
                 anchor: new google.maps.Point(0, 0),

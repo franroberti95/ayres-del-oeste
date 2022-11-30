@@ -28,9 +28,9 @@ const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
     return <BuildingsMainContainer>
 
         <TitleContainer>
-            <Typography variant="h4" color={'black'}>
-                Desarrollos inmobiliarios
-            </Typography>
+            <Title>
+                Desarrollos inmobiliarios 
+            </Title>
         </TitleContainer>
         <BuildingsContainer>
             <Grid container spacing={2}>
@@ -144,6 +144,7 @@ const BuildingTitle = styled.h1`
 `;
 
 const BuildingsMainContainer = styled.div`
+background-color: #23b3a7;
 
 `;
 const BuildingImageTitle = styled.p`
@@ -158,6 +159,13 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  background: linear-gradient(135deg, #05055b 25%, #3051B7 25%);
+  background: #23b3a7;
 `;
+const Title = styled.h1`
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  
+`;
+
+
 export default Buildings;

@@ -19,7 +19,8 @@ function BasicMenuButton() {
     return (
         <div>
             
-            <Button
+            <CustomButton
+                
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
@@ -28,7 +29,7 @@ function BasicMenuButton() {
                 endIcon={<DownIcon />}
             >
                 Desarrollos
-            </Button>
+            </CustomButton>
             <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
@@ -53,18 +54,13 @@ const Header = () =>
         <HeaderItem>
             <BasicMenuButton/>
         </HeaderItem>
-        <HeaderItem>
-            <Button>
-                Nosotros
-            </Button>
-        </HeaderItem>
-        <HeaderItem>
-            <Button
+               <HeaderItem>
+            <CustomButton
                 target={'_blank'}
                 href={'https://api.whatsapp.com/send?phone=+5491124577070&text=Buenas!%20Me%20interesar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20desarrollos%20de%20ayres%20del%20oeste'}
             >
                 Contacto
-            </Button>
+            </CustomButton>
         </HeaderItem>
     </HeaderContainer>;
 
@@ -74,7 +70,7 @@ const HeaderContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   padding: 14px 0 14px 0;
-  background-color: #3051B7;
+  background-color: #23b3a7;
 `;
 const HeaderItem = styled.div`
 `;
@@ -85,6 +81,10 @@ const HeaderLogo = styled.img`
   width: 100%;
 `;
 
+const CustomButton = styled(Button)`
+color: white;
+text-shadow: 1px 1px 2px black;
+`;
 
 
 
