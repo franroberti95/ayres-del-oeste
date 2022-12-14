@@ -23,13 +23,13 @@ const BuildingMap = ({b}: {b: BuildingI}) => {
     const router = useRouter();
 
     React.useEffect(() => {
-        if (window.google) {
+        if (window?.google?.maps) {
             return onLoad()
         }
 
         setTimeout( () => {
             return onLoad()
-        }, 500)
+        }, 5500)
     }, []);
 
     const onLoad = () => {
@@ -73,6 +73,7 @@ const BuildingMap = ({b}: {b: BuildingI}) => {
 const BuildingMapContainer = styled.div`
     height: 100%;
     width: 100%;
+
 `;
 
 export default BuildingMap;

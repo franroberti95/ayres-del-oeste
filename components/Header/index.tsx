@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownIcon from '@mui/icons-material/ExpandMore';
 import Logo from './Logo.svg';
+import Link from 'next/link'
 
 function BasicMenuButton() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -39,17 +40,19 @@ function BasicMenuButton() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Oportunidades</MenuItem>
-                <MenuItem onClick={handleClose}>Vendidos</MenuItem>
+                <MenuItem onClick={handleClose}>DISPONIBLES</MenuItem>
+                <MenuItem onClick={handleClose}>VENDIDOS</MenuItem>
             </Menu>
         </div>
     );
 }
-console.log('asdadssd', Logo)
+
 const Header = () =>
     <HeaderContainer>
         <HeaderLogoContainer>
-            <HeaderLogo src={Logo.src}></HeaderLogo>
+            <Link href={`/`}>
+                <HeaderLogo src={Logo.src}></HeaderLogo>
+            </Link>
         </HeaderLogoContainer>
         <HeaderItem>
             <BasicMenuButton/>
@@ -79,6 +82,7 @@ const HeaderLogoContainer = styled.div`
 `;
 const HeaderLogo = styled.img`
   width: 100%;
+  cursor: pointer;
 `;
 
 const CustomButton = styled(Button)`

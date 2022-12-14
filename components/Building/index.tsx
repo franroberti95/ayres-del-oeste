@@ -11,7 +11,7 @@ export interface CharacteristicI {
 }
 
 export interface BuildingI {
-    images: string[];
+    images: {photo: string, value: number}[];
     characteristics: CharacteristicI[];
     title: string;
     description: string;
@@ -22,9 +22,10 @@ export interface BuildingI {
     id: number | string;
 }
 
+
+
 const Buildings = ({buildings}: {buildings: BuildingI[]}) => {
-    const orderedBuildings = buildings
-        .sort( (b1,b2) => b1.order > b2.order ? 1:-1);
+    const orderedBuildings = buildings.sort( (b1,b2) => b1.order > b2.order ? 1:-1);
     return <BuildingsMainContainer>
 
         <TitleContainer>
@@ -90,11 +91,18 @@ const Building = ({building}: {building: BuildingI}) => {
     },[])
 
     if(!building) return null;
-    console.log(building);
+    
+    const firstImage = building.images.reduce( (prevValue, currentValue) => {
+        if(prevValue.value < currentValue.value)
+            return prevValue
+        return currentValue
+    }, building.images[0]);
+
+    console.log('firstImage', firstImage, building)
     return <a href={`/building/${building.id}`}>
         <BuildingContainer
             ref={gridRef}
-            image={building.images[0]}>
+            image={firstImage.photo}>
             <Typography variant="h5" color={'white'}>
                 {building.title}
             </Typography>

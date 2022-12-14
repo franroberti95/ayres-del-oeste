@@ -71,7 +71,7 @@ const Home: NextPage = ({building}: BuildingPageI) => {
             </TitleContainer>
 
             <Slideshow building={building}/> 
-
+            <Spacer></Spacer>
             <Grid container>
               <Grid item xs={12} md={4}>
                 <Characteristics building={building}/>
@@ -88,6 +88,8 @@ const Home: NextPage = ({building}: BuildingPageI) => {
         </div>
     )
 }
+
+const Spacer = styled.div`height: 2vh`;
 
 const TitleContainer = styled.div`
   padding-top: 20px;

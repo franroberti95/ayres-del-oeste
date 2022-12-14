@@ -11,10 +11,12 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { BuildingI } from '../Building';
 import styled from 'styled-components';
-
+import Dialog from '@mui/material/Dialog';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Building = ({building}: {building: BuildingI}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   return <SwiperContainer>
 
 <Swiper
@@ -29,9 +31,9 @@ const Building = ({building}: {building: BuildingI}) => {
         className="mySwiper2"
       >
         {
-          building.images.map( (i,k) => 
-            <SwiperSlide key={k}>
-              <img src={i} />
+          building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
+            <SwiperSlide key={k} onClick={()=>setDialogOpen(true)}>
+              <img src={i.photo} />
             </SwiperSlide>
           )
         }
@@ -49,18 +51,68 @@ const Building = ({building}: {building: BuildingI}) => {
       className="mySwiper"
     >
     {
-      building.images.map( (i,k) => 
+      building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
         <SwiperSlide key={k}>
-          <img src={i}/>
+          <img src={i.photo}/>
         </SwiperSlide>
       )
     }
     </Swiper>
         :null
       }
+
+
+    <Dialog fullScreen onClose={()=>setDialogOpen(false)} open={dialogOpen}>
+      <CrossContainer onClick={()=>setDialogOpen(false)}>
+        <CloseIcon style={{color: 'white', height: '5vh', width: '5vh' }}></CloseIcon>
+      </CrossContainer>
+    <Swiper
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        }}
+        keyboard={{
+          enabled: true,
+        }}
+        spaceBetween={10}
+        navigation={true} 
+        modules={[Navigation, Thumbs]}
+        className="mySwiper3"
+      >
+        {
+          building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
+            <SwiperSlide key={k}>
+            
+              <DialogImage src={i.photo}>
+              </DialogImage>  
+            </SwiperSlide>
+          )
+        }
+      </Swiper>
+    </Dialog>
   </SwiperContainer>
 };
 
+const CrossContainer = styled.div`
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  cursor: pointer;
+  z-index:10;
+  border-radius: 50%;
+  background-color: #93919166;
+  display: flex;
+  align-items: center;
+  height: 5vh;
+   width: 5vh;
+
+
+`;
+
+const DialogImage = styled.img`
+  max-height: 100vh;
+  max-width: 100vw;
+`
 
  const BuildingContainer = styled.div`
   padding: 5px;
@@ -97,12 +149,12 @@ max-height: 80vh;
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .swiper-slide img {
   display: block;
   height: 100%;
-  background: ;
 }
 
 .swiper {

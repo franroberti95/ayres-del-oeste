@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import styled from "styled-components";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { useRouter } from 'next/router';
@@ -51,7 +51,7 @@ const BuildingMap = ({buildings}: {buildings: BuildingI[]}) => {
             marker.addListener("click", () => {
                 /*map.setZoom(8);
                 map.setCenter(marker.getPosition() as google.maps.LatLng);*/
-                router.push(`/${b.id}`)
+                router.push(`/building/${b.id}`)
             });
 
             marker.setMap(map);

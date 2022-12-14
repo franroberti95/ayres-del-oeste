@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import Image from 'next/image'
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { BuildingI } from '../Building';
@@ -28,7 +29,7 @@ const Plane = ({b}: {b: BuildingI}) => {
         className="mySwiper2"
       >
         {
-          b.floorPlan.map( (i,k) => 
+          b?.floorPlan?.map( (i,k) => 
             <SwiperSlide key={k}>
               <img src={i} />
             </SwiperSlide>
@@ -93,7 +94,7 @@ max-height: 80vh;
 .mySwiper .swiper-slide {
   width: 25%;
   height: 100%;
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .mySwiper .swiper-slide-thumb-active {

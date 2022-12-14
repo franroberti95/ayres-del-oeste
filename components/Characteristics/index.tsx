@@ -26,7 +26,7 @@ const Building = ({building}: {building: BuildingI}) => {
       <CustomTypographys>Características</CustomTypographys>
       <CustomDescription>{building.description}</CustomDescription>
       {
-        building.characteristics.map( (c, i) =>
+        building?.characteristics?.map( (c, i) =>
             <CharacteristicContainer key={i}>
               {
                 type[c.type]
@@ -50,6 +50,8 @@ const CharacteristicContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom:15px;
+  padding-top: 15px;
+
   border-bottom: 1px solid white;
 `;
 const CustomTypography = styled.div`
@@ -80,7 +82,7 @@ const CustomTypographys = styled.div`
 color: white;
 font-family: "Monaco", monospace;
 font-size: 24px;
-padding-bottom: 1px;
+padding-bottom: 20px;
 margin-bottom: 10px;
 padding-top: 2px;
 text-shadow: 1px 1px 2px black;
