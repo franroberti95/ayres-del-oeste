@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -7,7 +7,9 @@ import DownIcon from '@mui/icons-material/ExpandMore';
 import Logo from './Logo.svg';
 import Link from 'next/link'
 
-function BasicMenuButton() {
+
+function BasicMenuButton({buildings}) {
+    const [showSold, setShowSold] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -16,6 +18,28 @@ function BasicMenuButton() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const [anchorElMenu2, setAnchorElMenu2] = React.useState<null | HTMLElement>(null);
+    const openMenu2 = Boolean(anchorElMenu2);
+
+    const handleOpenSecondMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorElMenu2(event.currentTarget);
+    }
+
+    const handleAvailableClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        handleOpenSecondMenu(event);
+        setShowSold(false);
+
+    };
+    const handleCloseSecondMenu = () => {
+        setAnchorEl(null);
+        setAnchorElMenu2(null);
+    };
+
+    const handleSoldClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        handleOpenSecondMenu(event);
+        setShowSold(true);
+    }
 
     return (
         <div>
@@ -40,14 +64,42 @@ function BasicMenuButton() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>DISPONIBLES</MenuItem>
-                <MenuItem onClick={handleClose}>VENDIDOS</MenuItem>
+                <MenuItem onClick={handleAvailableClick}>
+                        DISPONIBLES
+                </MenuItem>
+                <MenuItem onClick={handleSoldClick}>
+                    VENDIDOS           
+                </MenuItem>
+            </Menu>
+
+
+            <Menu
+                id="basic-menu-2"
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                anchorEl={anchorElMenu2}
+                open={openMenu2}
+                onClose={handleCloseSecondMenu}
+                MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                }}
+            >
+                {buildings.filter( i => i.sold === showSold).map(i => 
+            <Link key={i.id} href={`/building/${i.id}`}>
+                    <MenuItem onClick={handleCloseSecondMenu}>
+                        {i.title}
+                    </MenuItem>
+            </Link>
+                    )
+                    }      
             </Menu>
         </div>
     );
 }
 
-const Header = () =>
+const Header = ({buildings}) =>
     <HeaderContainer>
         <HeaderLogoContainer>
             <Link href={`/`}>
@@ -55,7 +107,7 @@ const Header = () =>
             </Link>
         </HeaderLogoContainer>
         <HeaderItem>
-            <BasicMenuButton/>
+            <BasicMenuButton buildings={buildings}/>
         </HeaderItem>
                <HeaderItem>
             <CustomButton

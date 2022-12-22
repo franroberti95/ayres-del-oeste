@@ -53,17 +53,19 @@ export async function getServerSideProps({query}) {
     const res = await getBuilding(db);
     // Pass data to the page via props
     console.log(res)
-    return { props: { building: JSON.parse(JSON.stringify(res.find(i => i.id === query.id))) } }
-  }
+
+    return { props: { building: JSON.parse(JSON.stringify(res.find(i => i.id === query.id))), buildings: JSON.parse(JSON.stringify(res)) } } 
+}
 
 interface BuildingPageI {
   building: BuildingI
+  buildings: BuildingI[]
 }
 
-const Home: NextPage = ({building}: BuildingPageI) => {
+const Home: NextPage = ({building, buildings}: BuildingPageI) => {
     return (
         <div>
-            <Header />
+            <Header buildings={buildings}/>
             <TitleContainer>
               <TitleContainerTest>
                 {building.title}

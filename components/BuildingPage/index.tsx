@@ -38,11 +38,11 @@ const Building = ({building}: {building: BuildingI}) => {
             </SwiperSlide>
           )
         }
-      </Swiper>
+</Swiper>
       {
         building.images.length > 1 ?
         
-      <Swiper
+ <Swiper
       onSwiper={setThumbsSwiper}
       spaceBetween={10}
       slidesPerView={4}
@@ -58,7 +58,7 @@ const Building = ({building}: {building: BuildingI}) => {
         </SwiperSlide>
       )
     }
-    </Swiper>
+</Swiper>
         :null
       }
 
@@ -67,7 +67,7 @@ const Building = ({building}: {building: BuildingI}) => {
       <CrossContainer onClick={()=>setDialogOpen(false)}>
         <CloseIcon style={{color: 'white', height: '5vh', width: '5vh' }}></CloseIcon>
       </CrossContainer>
-    <Swiper
+<Swiper
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
@@ -89,7 +89,7 @@ const Building = ({building}: {building: BuildingI}) => {
             </SwiperSlide>
           )
         }
-      </Swiper>
+</Swiper>
     </Dialog>
   </SwiperContainer>
 };
@@ -132,7 +132,6 @@ const DialogImage = styled.img`
 `;
 
 const SwiperContainer = styled.div`
-padding-right: 2%;
 max-height: 80vh;
 .swiper-slide {
   text-align: center;

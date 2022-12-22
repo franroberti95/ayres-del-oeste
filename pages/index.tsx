@@ -55,7 +55,7 @@ export async function getServerSideProps() {
 const Home: NextPage = ({buildings}) => {
   return (
     <div>
-      <Header/>
+      <Header buildings={buildings}/>
       <BuildingMap buildings={buildings}/>
       <DividerContainer/>
       <Buildings

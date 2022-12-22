@@ -5,6 +5,7 @@ import MailIcon from '@mui/icons-material/Email';
 import Grid from '@mui/material/Grid';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link'
 
 const Footer = () =>
     <FooterContainer container spacing={2}>
@@ -39,15 +40,17 @@ const Footer = () =>
                 Inmobiliarias asociadas
             </Title>
              
+            <Link href={`https://www.scarabelpropiedades.com`}>
             <FooterImage
                 src={'https://www.scarabelpropiedades.com/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F7777_r%2Flogo_u_5f0dcabe9ddb2.jpg&w=1920&q=75'}
             />
+            </Link>
+
+            <Link href={`https://www.beltraminopropiedades.com.ar`}>
             <FooterImage
                 src={'https://www.beltraminopropiedades.com.ar/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F8868_r%2Flogo_5ec814d6453c3.jpg&w=1920&q=75'}
             />
-            
-            
-            
+            </Link>            
          
         </InmobiliariaConteiner>
 
@@ -58,6 +61,7 @@ const ContactInfo = ({icon, text}) =>
         {React.createElement(icon, {style: {fill: 'white'}})}
         <TitleDetail>{text}</TitleDetail>
     </ContactInfoContainer>;
+
 
 const ContactContainer = styled(Grid)`
 @media only screen and (max-width: 768px) {
@@ -99,7 +103,7 @@ const FooterImage = styled.img`
   justify-content: center;
   text-align: center;
   margin: 20px;
-  
+  cursor: pointer;  
  `;
 
 const FooterImageLogo = styled.img`
