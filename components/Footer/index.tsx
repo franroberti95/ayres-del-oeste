@@ -38,7 +38,8 @@ const Footer = () =>
             <Title>
                 Inmobiliarias asociadas
             </Title>
-             <FooterImage
+             
+            <FooterImage
                 src={'https://www.scarabelpropiedades.com/_next/image?url=https%3A%2F%2Fstatic1.adinco.net%2F7777_r%2Flogo_u_5f0dcabe9ddb2.jpg&w=1920&q=75'}
             />
             <FooterImage

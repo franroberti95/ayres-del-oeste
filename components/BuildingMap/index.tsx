@@ -73,7 +73,6 @@ const BuildingMap = ({b}: {b: BuildingI}) => {
 const BuildingMapContainer = styled.div`
     height: 100%;
     width: 100%;
-
 `;
 
 export default BuildingMap;

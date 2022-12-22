@@ -41,6 +41,8 @@ const Plane = ({b}: {b: BuildingI}) => {
 
 const SwiperContainer = styled.div`
 max-height: 80vh;
+  padding-left: 5%;
+  padding-right: 5%;
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -99,6 +101,7 @@ max-height: 80vh;
 
 .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
+  color:black;
 }
 
 .swiper-slide img {

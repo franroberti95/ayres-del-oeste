@@ -59,7 +59,7 @@ const Home: NextPage = ({buildings}) => {
       <BuildingMap buildings={buildings}/>
       <DividerContainer/>
       <Buildings
-          buildings={buildings}
+          buildings={buildings} 
       />
       <Coments
 
@@ -74,7 +74,6 @@ const Home: NextPage = ({buildings}) => {
 
 const DividerContainer = styled.div`
   margin-top: 24px;
-  color: red;
 `;
 
 export default Home

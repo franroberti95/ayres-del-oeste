@@ -17,6 +17,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const Building = ({building}: {building: BuildingI}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const images = building.images.sort( (a,b)=>a.value>b.value? 1:-1 );
   return <SwiperContainer>
 
 <Swiper
@@ -31,7 +32,7 @@ const Building = ({building}: {building: BuildingI}) => {
         className="mySwiper2"
       >
         {
-          building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
+          images.map( (i,k) => 
             <SwiperSlide key={k} onClick={()=>setDialogOpen(true)}>
               <img src={i.photo} />
             </SwiperSlide>
@@ -51,7 +52,7 @@ const Building = ({building}: {building: BuildingI}) => {
       className="mySwiper"
     >
     {
-      building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
+      images.map( (i,k) => 
         <SwiperSlide key={k}>
           <img src={i.photo}/>
         </SwiperSlide>
@@ -80,7 +81,7 @@ const Building = ({building}: {building: BuildingI}) => {
         className="mySwiper3"
       >
         {
-          building.images.sort( (a,b)=>a.value>b.value?1:-1 ).map( (i,k) => 
+          images.map( (i,k) => 
             <SwiperSlide key={k}>
             
               <DialogImage src={i.photo}>
@@ -131,6 +132,7 @@ const DialogImage = styled.img`
 `;
 
 const SwiperContainer = styled.div`
+padding-right: 2%;
 max-height: 80vh;
 .swiper-slide {
   text-align: center;

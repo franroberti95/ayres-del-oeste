@@ -1,5 +1,5 @@
 import React from 'react';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
 import styled from "styled-components";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { useRouter } from 'next/router';
@@ -70,6 +70,7 @@ const BuildingMap = ({buildings}: {buildings: BuildingI[]}) => {
 }
 
 const BuildingMapContainer = styled.div`
+padding: 20px;
 `;
 
 export default BuildingMap;

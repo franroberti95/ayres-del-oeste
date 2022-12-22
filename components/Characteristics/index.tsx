@@ -39,8 +39,8 @@ const Building = ({building}: {building: BuildingI}) => {
 }
 
 const CharacteristicsContainer = styled.div`
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 5%;
+  padding-right: 5%;
   height: 100%;
   background-color: #23b3a7;
   
