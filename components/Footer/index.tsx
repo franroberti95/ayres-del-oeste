@@ -67,7 +67,7 @@ const ContactContainer = styled(Grid)`
 @media only screen and (max-width: 768px) {
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
   }  
 `;
