@@ -65,7 +65,7 @@ function BasicMenuButton({buildings}) {
                 }}
             >
                 <MenuItem onClick={handleAvailableClick}>
-                        DISPONIBLES
+                 DISPONIBLES
                 </MenuItem>
                 <MenuItem onClick={handleSoldClick}>
                     VENDIDOS           
@@ -138,7 +138,7 @@ const HeaderLogo = styled.img`
 `;
 
 const CustomButton = styled(Button)`
-color: white;
+color: white !important;
 text-shadow: 1px 1px 2px black;
 `;
 
