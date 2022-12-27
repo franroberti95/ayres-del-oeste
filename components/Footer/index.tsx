@@ -23,7 +23,7 @@ const Footer = () =>
             />
             <ContactInfo
                 icon={MailIcon}
-                text={'asdfsd@gmail.com'}
+                text={'aaaaaaaa@gmail.com'}
             />
         </ContactContainer>
         <ImageContainer item xs={12} md={5}>
