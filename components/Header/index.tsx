@@ -123,7 +123,7 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: end;
   padding: 14px 0 14px 0;
   background-color: #23b3a7;
 `;
