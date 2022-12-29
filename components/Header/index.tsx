@@ -108,8 +108,7 @@ const Header = ({buildings}) =>
         </HeaderLogoContainer>
         <HeaderItem>
             <BasicMenuButton buildings={buildings}/>
-        </HeaderItem>
-               <HeaderItem>
+
             <CustomButton
                 target={'_blank'}
                 href={'https://api.whatsapp.com/send?phone=+5491124577070&text=Buenas!%20Me%20interesar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20desarrollos%20de%20ayres%20del%20oeste'}
@@ -121,13 +120,22 @@ const Header = ({buildings}) =>
 
 const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: end;
+  align-items: center;
   padding: 14px 0 14px 0;
   background-color: #23b3a7;
+  
 `;
 const HeaderItem = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+padding: 14px 0 14px 0;
+background-color: #23b3a7;
+width: 100%;
+justify-content: space-between;
 `;
 const HeaderLogoContainer = styled.div`
   max-width: 200px;
@@ -140,7 +148,7 @@ const HeaderLogo = styled.img`
 const CustomButton = styled(Button)`
 color: white !important;
 text-shadow: 1px 1px 2px black;
-padding: 6px 12px;
+padding: 30px 30px;
 `;
 
 
