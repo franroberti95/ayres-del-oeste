@@ -51,7 +51,7 @@ function BasicMenuButton({buildings}) {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                endIcon={<DownIcon />}
+                endIcon={<DownIcon/>}
             >
                 Desarrollos
             </CustomButton>
@@ -140,6 +140,7 @@ const HeaderLogo = styled.img`
 const CustomButton = styled(Button)`
 color: white !important;
 text-shadow: 1px 1px 2px black;
+padding: 6px 12px;
 `;
 
 
