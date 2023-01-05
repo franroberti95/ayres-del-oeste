@@ -136,6 +136,7 @@ padding: 14px 0 14px 0;
 background-color: #23b3a7;
 width: 100%;
 justify-content: space-between;
+padding: 0 20px;
 `;
 const HeaderLogoContainer = styled.div`
   max-width: 200px;
@@ -149,6 +150,7 @@ const CustomButton = styled(Button)`
 color: white !important;
 text-shadow: 1px 1px 2px black;
 padding: 30px 30px;
+font-size: 5 rem;
 `;
 
 

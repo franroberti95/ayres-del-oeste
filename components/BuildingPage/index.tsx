@@ -33,7 +33,7 @@ const Building = ({building}: {building: BuildingI}) => {
       >
         {
           images.map( (i,k) => 
-            <SwiperSlide key={k} onClick={()=>setDialogOpen(true)}>
+            <SwiperSlide key={k} onClick={()=>setDialogOpen()}>
               <img src={i.photo} />
             </SwiperSlide>
           )
@@ -45,7 +45,7 @@ const Building = ({building}: {building: BuildingI}) => {
  <Swiper
       onSwiper={setThumbsSwiper}
       spaceBetween={10}
-      slidesPerView={4}
+      slidesPerView={typeof window !== "undefined" && window.innerWidth  <= 768 ? 2:4}
       freeMode={true}
       watchSlidesProgress={true}
       modules={[FreeMode, Navigation, Thumbs]}
@@ -75,9 +75,11 @@ const Building = ({building}: {building: BuildingI}) => {
         keyboard={{
           enabled: true,
         }}
+        
         spaceBetween={10}
         navigation={true} 
-        modules={[Navigation, Thumbs]}
+        thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
+        modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper3"
       >
         {
