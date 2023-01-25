@@ -18,6 +18,8 @@ const Building = () => {
     const { id } = router.query
     const buildingData = buildings.find( b => b.title.toLowerCase() === id?.toLowerCase());
 
+
+    console.log("buildingData",buildingData)
     return <>
         <Head>
             <title>{buildingData?.title}</title>

@@ -2,20 +2,19 @@ import styled from "styled-components"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import Image from "next/image";
+import {unoptimizedImages} from "../../constants/unoptimizedImages";
 
 const BuildingSlider = ({data}) => {
     return <BuildingSliderContainer>
         <Swiper
             spaceBetween={0}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
         >
             {
                 data?.floorPlan?.map( (i: any, k: number) =>
                     <SwiperSlide key={k}>
                         <SwiperSlideContainer>
-                            <Image unoptimized alt={data.title} src={i} fill />
+                            <Image unoptimized={unoptimizedImages} alt={data.title} src={i} fill />
                         </SwiperSlideContainer>
                     </SwiperSlide>
                 )

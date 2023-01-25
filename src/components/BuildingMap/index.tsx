@@ -5,8 +5,19 @@ import styled from "styled-components";
 function BuildingMap({data}:any) {
     const mapRef = React.useRef(null);
     React.useEffect(() => {
-        if(!window.google) return
+        let interval: any = null;
+        if(!window.google)
+            interval = setInterval(()=> {
+                if(window.google){
+                    clearInterval(interval)
+                    loadMap()
+                }
+            }, 3000)
+        else
+            loadMap()
+    });
 
+    const loadMap = () => {
         let google = window?.google;
         let map = mapRef.current;
         let lat = data?.location?.latitude || "-34.6662424704835";
@@ -40,7 +51,8 @@ function BuildingMap({data}:any) {
         google.maps.event.addListener(marker, "click", function () {
             infowindow.open(map, marker);
         });
-    });
+    }
+
     return (
         <>
             <MapWrapper>

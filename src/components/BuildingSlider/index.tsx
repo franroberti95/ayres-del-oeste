@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import Image from "next/image";
+import {unoptimizedImages} from "../../constants/unoptimizedImages";
 
 const BuildingSlider = ({data}) => {
 
@@ -9,14 +10,12 @@ const BuildingSlider = ({data}) => {
         <Swiper
             spaceBetween={0}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
         >
             {
                 data?.images?.sort( (a:number, b:number) => a.value > b.value? 1:-1 ).map( (i: any, k: number) =>
                     <SwiperSlide key={k}>
                         <SwiperSlideContainer>
-                            <Image unoptimized alt={data.title} src={i.photo} fill />
+                            <Image unoptimized={unoptimizedImages} alt={data.title} src={i.photo} fill />
                         </SwiperSlideContainer>
                     </SwiperSlide>
                 )

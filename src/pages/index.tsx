@@ -11,7 +11,7 @@ import MarkerIcon from "@/icons/Marker";
 import Link from "next/link";
 import { FaArrowDown } from 'react-icons/fa';
 import Inmobiliarias from "@/components/Inmobiliarias";
-import Footer from "@/components/Footer";
+import {unoptimizedImages} from "../constants/unoptimizedImages";
 
 export default function Home() {
   return (
@@ -66,7 +66,7 @@ const Buildings = () => {
 const Building = ({data}) => {
     const firstImage = data.images.find( b => b.value === 0 || b.value === 1 );
     return <Link href={`/desarrollo/${data.title}`}><BuildingContainer>
-        <Image unoptimized alt={data.title} src={firstImage.photo} fill style={{borderRadius: 8}}/>
+        <Image unoptimized={unoptimizedImages} alt={data.title} src={firstImage.photo} fill style={{borderRadius: 8}}/>
         <BuildingFadeOverlay>
             <TitleContainer>
                 <MarkerIcon/>
