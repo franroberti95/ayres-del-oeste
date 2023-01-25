@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 
 
-function BuildingMap({data}) {
+function BuildingMap({data}:any) {
     const mapRef = React.useRef(null);
     React.useEffect(() => {
         if(!window.google) return

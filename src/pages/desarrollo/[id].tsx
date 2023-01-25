@@ -9,6 +9,7 @@ import styled from "styled-components";
 import Characteristics from "@/components/Characteristics";
 import BuildingMap from "@/components/BuildingMap";
 import BuildingPlane from "@/components/BuildingPlane";
+import Script from "next/script";
 
 const API_KEY = "AIzaSyC_78TT-bbs_yk_AnpgEjyCRv7TX_IVxHk";
 
@@ -23,8 +24,8 @@ const Building = () => {
             <meta name="description" content="Ayres del oeste" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
-            <script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></script>
         </Head>
+        <Script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></Script>
         <HeaderSpacer/>
         <TextContainer>
             <Text noMargin color="white" align="center" element="h3" fontSize={32}>{buildingData?.title}</Text>
