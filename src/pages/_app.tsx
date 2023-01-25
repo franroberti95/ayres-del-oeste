@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
-      <Nav/>
       <Component {...pageProps} />
       <Footer/>
     </>

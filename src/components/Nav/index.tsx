@@ -1,20 +1,27 @@
 import React from "react"
 import styled from "styled-components"
-import MenuIcon from "./menu.svg"
 import Logo from "./logo.svg"
 import colors from "@/constants/colors";
 import Link from "next/link";
-//import Text from "../Text"
-//         <Text color="white" fontSize={24} noMargin>Ayres del Oeste</Text>
-const Nav = () =>
+import Text from "../Text"
+
+const Nav = ({title}) =>
     <NavContainer>
         <Link href={`/`}>
             <Logo width={150} height={40}/>
         </Link>
+        <Text color="white" fontSize={16} noMargin>{title}</Text>
+        <DummyDiv></DummyDiv>
         {
             /*<MenuIcon fill="white" height={24} width={24}/>*/
         }
     </NavContainer>
+
+const DummyDiv = styled.div`
+  @media screen and (min-width: 800px) {
+    width: 150px;
+  }
+`;
 
 const NavContainer = styled.div`
   padding: 16px;

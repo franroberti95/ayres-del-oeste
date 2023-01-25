@@ -12,6 +12,7 @@ import Link from "next/link";
 import { FaArrowDown } from 'react-icons/fa';
 import Inmobiliarias from "@/components/Inmobiliarias";
 import {unoptimizedImages} from "../constants/unoptimizedImages";
+import Nav from "../components/Nav";
 
 export default function Home() {
   return (
@@ -22,7 +23,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BuildingsBackground>
+        <Nav title=""/>
+        <BuildingsBackground>
           <CenterContainer>
               <Logo fill={colors.secondary} width={250} height={180}/>
               <Text noMargin color="white" align="center" element="h3" fontSize={32}>Diseño y Calidad</Text>
@@ -52,14 +54,16 @@ const Buildings = () => {
         <BuildingTitleContainer>
             <Text align="center" color="white" fontSize={24} element="h3" noMargin>Desarrollos</Text>
         </BuildingTitleContainer>
-        {
-            buildings.map( b =>
-                <>
-                    <Building key={b.title} data={b}/>
-                    <BuildingSpacer/>
-                </>
-            )
-        }
+        <BuildingsInnerContainer>
+            {
+                buildings.map( b =>
+                    <div>
+                        <Building key={b.title} data={b}/>
+                        <BuildingSpacer/>
+                    </div>
+                )
+            }
+        </BuildingsInnerContainer>
     </BuildingsContainer>
 }
 
@@ -76,6 +80,15 @@ const Building = ({data}) => {
         </BuildingFadeOverlay>
     </BuildingContainer></Link>
 }
+
+const BuildingsInnerContainer = styled.div`
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+  }
+
+`;
 
 const TitleDivider = styled.div`
   width: 16px;
@@ -103,6 +116,10 @@ const BuildingContainer = styled.div`
   position: relative;
   margin: auto;
   border-radius: 8px;
+
+  @media screen and (min-width: 800px) {
+    width: calc(30vw - 32px);
+  }
 `;
 
 const BuildingFadeOverlay = styled.div`

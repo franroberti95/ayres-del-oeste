@@ -10,6 +10,7 @@ import Characteristics from "@/components/Characteristics";
 import BuildingMap from "@/components/BuildingMap";
 import BuildingPlane from "@/components/BuildingPlane";
 import Script from "next/script";
+import Nav from "../../components/Nav";
 
 const API_KEY = "AIzaSyC_78TT-bbs_yk_AnpgEjyCRv7TX_IVxHk";
 
@@ -18,8 +19,7 @@ const Building = () => {
     const { id } = router.query
     const buildingData = buildings.find( b => b.title.toLowerCase() === id?.toLowerCase());
 
-
-    console.log("buildingData",buildingData)
+    console.log('asd', buildingData)
     return <>
         <Head>
             <title>{buildingData?.title}</title>
@@ -28,10 +28,8 @@ const Building = () => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></script>
+        <Nav title={buildingData?.title}/>
         <HeaderSpacer/>
-        <TextContainer>
-            <Text noMargin color="white" align="center" element="h3" fontSize={32}>{buildingData?.title}</Text>
-        </TextContainer>
         <BuildingSlider data={buildingData}/>
         <Characteristics data={buildingData}/>
         <BuildingMap data={buildingData}/>
