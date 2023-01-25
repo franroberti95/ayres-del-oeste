@@ -25,7 +25,7 @@ const Building = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></Script>
+        <script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></script>
         <HeaderSpacer/>
         <TextContainer>
             <Text noMargin color="white" align="center" element="h3" fontSize={32}>{buildingData?.title}</Text>
