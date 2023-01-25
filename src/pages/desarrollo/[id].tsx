@@ -19,7 +19,6 @@ const Building = () => {
     const { id } = router.query
     const buildingData = buildings.find( b => b.title.toLowerCase() === id?.toLowerCase());
 
-    console.log('asd', buildingData)
     return <>
         <Head>
             <title>{buildingData?.title}</title>
@@ -27,7 +26,7 @@ const Building = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></script>
+        <Script src={"https://maps.googleapis.com/maps/api/js?key=" + API_KEY}></Script>
         <Nav title={buildingData?.title}/>
         <HeaderSpacer/>
         <BuildingSlider data={buildingData}/>

@@ -57,8 +57,8 @@ const Buildings = () => {
         <BuildingsInnerContainer>
             {
                 buildings.map( b =>
-                    <div>
-                        <Building key={b.title} data={b}/>
+                    <div key={b.title}>
+                        <Building data={b}/>
                         <BuildingSpacer/>
                     </div>
                 )
