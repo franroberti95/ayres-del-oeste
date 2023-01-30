@@ -32,10 +32,16 @@ const Building = () => {
         <BuildingSlider data={buildingData}/>
         <Characteristics data={buildingData}/>
         <BuildingMap data={buildingData}/>
-        <TextContainer>
-            <Text noMargin color="white" align="center" element="h3" fontSize={32}>Planos</Text>
-        </TextContainer>
-        <BuildingPlane data={buildingData}/>
+        {
+            buildingData?.floorPlan?.[0] ?
+                <>
+                    <TextContainer>
+                        <Text noMargin color="white" align="center" element="h3" fontSize={32}>Planos</Text>
+                    </TextContainer>
+                    <BuildingPlane data={buildingData}/>
+                </>
+                : null
+        }
     </>
 }
 
