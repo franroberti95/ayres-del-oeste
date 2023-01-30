@@ -29,16 +29,16 @@ export const buildings = [
         "order": 0,
         "images": [
             {
-                "photo": "https://drive.google.com/uc?export=view&id=1phV4omzTnd2NoBMVUHSaOWjyfIG4gToB",
+                "photo": "https://drive.google.com/uc?export=view&id=13rIOgZpkW_nMjMVV3hOOke-mVeD4j_0n",
                 "value": 7
             },
             {
-                "photo": "https://drive.google.com/uc?export=view&id=1Cu1y8-n3IX0VsTOxMPXznAz8HAEebbV8",
+                "photo": "https://drive.google.com/uc?export=view&id=1r8edhfzhrQvWg_KZ1qpQQLDHYsgFP4NY",
                 "value": 8
             },
             {
                 "value": 9,
-                "photo": "https://drive.google.com/uc?export=view&id=1bIQ6rKtOMnUwKAaDf_TpyA8BnJeO5pYK"
+                "photo": "https://drive.google.com/uc?export=view&id=1K41HouSSgeHniIdmcNZLdIEJEUrXiByH"
             },
             {
                 "photo": "https://drive.google.com/uc?export=view&id=1xVSIQPQuRY1-IIjXUAMwQbj-IfCy4xm7",
@@ -476,7 +476,7 @@ export const buildings = [
                 "photo": "https://drive.google.com/uc?export=view&id=1aHzyD-fQ1uLmghFbFBxkw4fcbHC-CITA"
             },
             {
-                "photo": "https://drive.google.com/uc?export=view&id=1s3NKSRqetBF5RG2cWqDUySLrPnle",
+                "photo": "https://drive.google.com/uc?export=view&id=1027JD4xecjKzVmyQJLrN_gdjEp5G-_Jq",
                 "value": 3
             },
             {

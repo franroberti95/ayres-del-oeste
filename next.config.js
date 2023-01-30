@@ -12,8 +12,19 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["google.com", "drive.google.com", "googleusercontent.com","doc-0k-7k-docs.googleusercontent.com", "doc-14-7k-docs.googleusercontent.com"],
+    domains: [
+        "*",
+        "doc-0s-0c-docs.googleusercontent.com",
+        "doc-14-0c-docs.googleusercontent.com",
+        "firebasestorage.googleapis.com",
+        "google.com",
+      "drive.google.com", "googleusercontent.com","doc-0k-7k-docs.googleusercontent.com", "doc-14-7k-docs.googleusercontent.com"],
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        port: '',
+      },
       {
         protocol: 'https',
         hostname: 'google.com',

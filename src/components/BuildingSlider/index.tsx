@@ -15,7 +15,9 @@ const BuildingSlider = ({data}) => {
                 data?.images?.sort( (a:number, b:number) => a.value > b.value? 1:-1 ).map( (i: any, k: number) =>
                     <SwiperSlide key={k}>
                         <SwiperSlideContainer>
-                            <Image unoptimized={unoptimizedImages} alt={data.title} src={i.photo} fill />
+                            <Image unoptimized={unoptimizedImages} alt={data.title} src={
+                                `https://firebasestorage.googleapis.com/v0/b/constructora-preview.appspot.com/o/${data.title.replace(" ", "-").replace(" ", "-")}%2FConstruccion%2F${data.title.replace(" ", "-").replace(" ", "-")}-${i.value}.jpg?alt=media`
+                            } fill />
                         </SwiperSlideContainer>
                     </SwiperSlide>
                 )

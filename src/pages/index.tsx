@@ -68,9 +68,10 @@ const Buildings = () => {
 }
 
 const Building = ({data}) => {
-    const firstImage = data.images.find( b => b.value === 0 || b.value === 1 );
+    const firstImage = `https://firebasestorage.googleapis.com/v0/b/constructora-preview.appspot.com/o/${data.title.replace(" ", "-").replace(" ", "-")}%2FConstruccion%2F${data.title.replace(" ", "-").replace(" ", "-")}-${0}.jpg?alt=media`
+
     return <Link href={`/desarrollo/${data.title}`}><BuildingContainer>
-        <Image unoptimized={unoptimizedImages} alt={data.title} src={firstImage.photo} fill style={{borderRadius: 8}}/>
+        <Image unoptimized={unoptimizedImages} alt={data.title} src={firstImage} fill style={{borderRadius: 8}}/>
         <BuildingFadeOverlay>
             <TitleContainer>
                 <MarkerIcon/>

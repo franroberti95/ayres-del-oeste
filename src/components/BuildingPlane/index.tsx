@@ -14,7 +14,9 @@ const BuildingSlider = ({data}) => {
                 data?.floorPlan?.map( (i: any, k: number) =>
                     <SwiperSlide key={k}>
                         <SwiperSlideContainer>
-                            <Image unoptimized={unoptimizedImages} alt={data.title} src={i} fill />
+                            <Image unoptimized={unoptimizedImages} alt={data.title} src={
+                                `https://firebasestorage.googleapis.com/v0/b/constructora-preview.appspot.com/o/${data.title}%2FPlanos%2F${data.title}-plan-${k}.jpg?alt=media`
+                            } fill />
                         </SwiperSlideContainer>
                     </SwiperSlide>
                 )
